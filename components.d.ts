@@ -12,7 +12,19 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
+    Chip: typeof import('primevue/chip')['default']
+    ContactSection: typeof import('./src/components/ContactSection.vue')['default']
+    HeroSection: typeof import('./src/components/HeroSection.vue')['default']
+    InputText: typeof import('primevue/inputtext')['default']
+    MainFooter: typeof import('./src/components/MainFooter.vue')['default']
+    MainNavbar: typeof import('./src/components/MainNavbar.vue')['default']
+    ProfileSection: typeof import('./src/components/ProfileSection.vue')['default']
+    ProjectSection: typeof import('./src/components/ProjectSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ServiceSection: typeof import('./src/components/ServiceSection.vue')['default']
+    SkillSection: typeof import('./src/components/SkillSection.vue')['default']
+    Textarea: typeof import('primevue/textarea')['default']
   }
 }
