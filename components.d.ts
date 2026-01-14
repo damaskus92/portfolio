@@ -26,6 +26,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ServiceSection: typeof import('./src/components/ServiceSection.vue')['default']
     SkillSection: typeof import('./src/components/SkillSection.vue')['default']
+    Tag: typeof import('primevue/tag')['default']
     Textarea: typeof import('primevue/textarea')['default']
   }
 }
