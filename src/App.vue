@@ -17,7 +17,7 @@
 
       <HeroSection />
       <ProfileSection />
-      <SkillSection />
+      <ServiceSection />
       <ProjectSection />
       <ContactSection />
 
@@ -33,7 +33,7 @@ import ProfileSection from './components/ProfileSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import MainFooter from './components/MainFooter.vue'
-import SkillSection from './components/SkillSection.vue'
+import ServiceSection from './components/ServiceSection.vue'
 
 const handleMouseMove = (e: MouseEvent) => {
   const x = (e.clientX / window.innerWidth) * 100

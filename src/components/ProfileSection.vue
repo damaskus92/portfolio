@@ -8,7 +8,7 @@
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Profile Overview Card (Full Width) -->
         <Card
-          class="md:col-span-3 bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition"
+          class="md:col-span-3 bg-linear-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition"
         >
           <template #content>
             <div class="space-y-5">
@@ -83,7 +83,7 @@
 
         <!-- Contact Card -->
         <Card
-          class="bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition"
+          class="bg-linear-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition"
           pt:body:class="h-full"
           pt:content:class="flex flex-col gap-6 justify-between h-full"
         >
@@ -120,7 +120,7 @@
 
         <!-- Tech Stack Card -->
         <Card
-          class="bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition md:col-span-2"
+          class="bg-linear-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-md border border-white/10 hover:border-white/20 transition md:col-span-2"
         >
           <template #content>
             <div class="space-y-5">
@@ -235,4 +235,20 @@ const openLink = (url: string) => {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+:deep(.p-card) {
+  background: linear-gradient(
+    to bottom right,
+    rgba(31, 41, 55, 0.6),
+    rgba(17, 24, 39, 0.4)
+  ) !important;
+}
+
+:deep(.p-card-body) {
+  background: transparent !important;
+}
+
+:deep(.p-card-content) {
+  background: transparent !important;
+}
+</style>
