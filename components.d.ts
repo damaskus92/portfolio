@@ -19,6 +19,7 @@ declare module 'vue' {
     InputText: typeof import('primevue/inputtext')['default']
     MainFooter: typeof import('./src/components/MainFooter.vue')['default']
     MainNavbar: typeof import('./src/components/MainNavbar.vue')['default']
+    Menubar: typeof import('primevue/menubar')['default']
     ProfileSection: typeof import('./src/components/ProfileSection.vue')['default']
     ProjectSection: typeof import('./src/components/ProjectSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

@@ -1,25 +1,95 @@
 <template>
-  <nav class="fixed top-0 w-full bg-gray-950/80 backdrop-blur-lg border-b border-gray-800/50 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div
-          class="text-2xl font-bold bg-linear-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent"
-        >
-          Portfolio
+  <header class="fixed top-0 inset-x-0 z-50">
+    <Menubar :model="items" class="navbar-glass">
+      <!-- Brand -->
+      <template #start>
+        <span class="brand-text"> Portfolio </span>
+      </template>
+
+      <!-- Menu (Right aligned) -->
+      <template #end>
+        <div class="flex items-center gap-2">
+          <!-- Desktop menu already handled by Menubar -->
+          <Button icon="pi pi-bars" class="md:hidden" text rounded aria-label="Menu" />
         </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="text-gray-400 hover:text-gray-100 transition">Home</a>
-          <a href="#profile" class="text-gray-400 hover:text-gray-100 transition">About</a>
-          <a href="#skills" class="text-gray-400 hover:text-gray-100 transition">Skills</a>
-          <a href="#projects" class="text-gray-400 hover:text-gray-100 transition">Projects</a>
-          <a href="#contact" class="text-gray-400 hover:text-gray-100 transition">Contact</a>
-        </div>
-        <Button icon="pi pi-bars" class="md:hidden" text rounded />
-      </div>
-    </div>
-  </nav>
+      </template>
+    </Menubar>
+  </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
 
-<style scoped></style>
+interface MenuItem {
+  label: string
+  command: () => void
+}
+
+const scrollToSection = (selector: string): void => {
+  document.querySelector(selector)?.scrollIntoView({
+    behavior: 'smooth',
+  })
+}
+
+const items = ref<MenuItem[]>([
+  { label: 'Home', command: () => scrollToSection('#home') },
+  { label: 'About', command: () => scrollToSection('#profile') },
+  { label: 'Skills', command: () => scrollToSection('#skills') },
+  { label: 'Projects', command: () => scrollToSection('#projects') },
+  { label: 'Contact', command: () => scrollToSection('#contact') },
+])
+</script>
+
+<style scoped>
+/* ================= GLASS NAVBAR ================= */
+.navbar-glass {
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-inline: 1rem;
+}
+
+/* ================= BRAND ================= */
+.brand-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #f9fafb, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= PRIMEVUE OVERRIDES ================= */
+.p-menubar {
+  border: none;
+}
+
+/* Push menu to the right */
+.p-menubar-root-list {
+  margin-left: auto;
+}
+
+/* Menu item */
+.p-menubar-root-list > .p-menuitem > .p-menuitem-content {
+  background: transparent;
+}
+
+.p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
+  color: #9ca3af;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link:hover {
+  color: #f9fafb;
+}
+
+.p-menuitem-link:focus {
+  box-shadow: none;
+}
+
+/* Mobile button */
+.p-menubar-button {
+  color: #e5e7eb;
+}
+</style>
