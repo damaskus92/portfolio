@@ -110,7 +110,7 @@
               <Button
                 label="WhatsApp Me"
                 icon="pi pi-whatsapp"
-                @click="openLink('https://wa.me/6281135881815')"
+                @click="openLink('https://wa.me/62811358815')"
                 class="w-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-600/40 font-semibold"
                 outlined
               />
