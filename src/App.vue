@@ -19,7 +19,7 @@
       <ProfileSection />
       <ServiceSection />
       <ProjectSection />
-      <ContactSection />
+      <!-- <ContactSection /> -->
 
       <MainFooter />
     </div>
@@ -31,7 +31,7 @@ import MainNavbar from './components/MainNavbar.vue'
 import HeroSection from './components/HeroSection.vue'
 import ProfileSection from './components/ProfileSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
-import ContactSection from './components/ContactSection.vue'
+// import ContactSection from './components/ContactSection.vue'
 import MainFooter from './components/MainFooter.vue'
 import ServiceSection from './components/ServiceSection.vue'
 

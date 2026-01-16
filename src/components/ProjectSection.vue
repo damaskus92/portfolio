@@ -15,8 +15,7 @@
         <Card
           v-for="project in projects"
           :key="project.id"
-          class="group cursor-pointer overflow-hidden rounded-xl bg-linear-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-md border border-gray-700/30 hover:border-gray-500/50 transition-all duration-300"
-          @click="openProject(project.url)"
+          class="group overflow-hidden rounded-xl bg-linear-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-md border border-gray-700/30 hover:border-gray-500/50 transition-all duration-300"
         >
           <!-- HEADER (Background Image) -->
           <template #header>
@@ -32,6 +31,12 @@
                 class="absolute inset-0 bg-linear-to-t from-gray-900/80 via-gray-900/30 to-transparent"
               ></div>
             </div>
+
+            <Chip
+              :label="project.url ? 'Live' : 'Internal'"
+              :severity="project.url ? 'success' : 'secondary'"
+              class="absolute top-3 right-3"
+            />
           </template>
 
           <!-- CONTENT -->
@@ -55,7 +60,18 @@
                   v-for="tech in project.technologies"
                   :key="tech"
                   :label="tech"
-                  class="bg-white/10 text-gray-300 border border-white/20 text-xs"
+                  class="bg-white/10 text-gray-300 border border-white/20 text-xs p-2 py-1"
+                />
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <Button
+                  v-if="project.url"
+                  label="View Project"
+                  icon="pi pi-external-link"
+                  iconPos="right"
+                  size="small"
+                  @click="openProject(project.url)"
                 />
               </div>
             </div>
@@ -71,6 +87,7 @@ import { ref } from 'vue'
 
 import lancarinImg from '@/assets/projects/lancarin.png'
 import gamelabImg from '@/assets/projects/gamelab.png'
+import eLkpImg from '@/assets/projects/e-lkp.png'
 
 interface Project {
   id: number
@@ -79,16 +96,16 @@ interface Project {
   description: string
   image: string
   technologies: string[]
-  url: string
+  url: string | null
 }
 
 const projects = ref<Project[]>([
   {
     id: 1,
     title: 'Quiz Lancarin',
-    category: 'Web-Based Quiz Platform',
+    category: 'Web-Based English Learning Quiz',
     description:
-      'An integrated client-server web application for online quiz management. Features include centralized question management, automatic grading, real-time results, and social media sharing capabilities.',
+      'A web-based English learning quiz platform that uses gamification to boost user engagement and make studying more enjoyable. Features include a centralized question bank, automated scoring, real-time result display, and social media sharing of scores and achievements.',
     image: lancarinImg,
     technologies: ['Laravel', 'Inertia', 'Vue.js', 'Tailwind CSS', 'MySQL', 'Filament Admin'],
     url: 'https://quiz.lancarin.id',
@@ -96,17 +113,28 @@ const projects = ref<Project[]>([
   {
     id: 2,
     title: 'Gamelab Indonesia',
-    category: 'Digital Education Platform',
+    category: 'Online Education & Training System',
     description:
-      'A web-based education platform providing training and digital skill development programs. Actively used by thousands of users with continuous development and maintenance.',
+      'An online education and training platform focused on digital skills development, vocational training, internships, and career readiness. The platform supports project-based learning, skill development programs, and industry-aligned curriculum delivery.',
     image: gamelabImg,
     technologies: ['Slim', 'Twig', 'Vue.js', 'Bootstrap', 'jQuery', 'MySQL'],
     url: 'https://gamelab.id',
   },
+  {
+    id: 3,
+    title: 'e-LKP',
+    category: 'Employee Daily Reporting System',
+    description:
+      'A web-based employee management application designed for daily work activity reporting. The system allows employees to submit daily job reports while enabling administrators to monitor performance, track work progress, and manage employee data efficiently.',
+    image: eLkpImg,
+    technologies: ['Codeigniter', 'Admin LTE', 'Bootstrap', 'jQuery', 'MySQL'],
+    url: null,
+  },
 ])
 
-const openProject = (url: string) => {
-  window.open(url, '_blank')
+const openProject = (url: string | null) => {
+  if (!url) return
+  window.open(url, '_blank', 'noopener,noreferrer')
 }
 </script>
 

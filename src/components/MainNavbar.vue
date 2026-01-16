@@ -34,9 +34,9 @@ const scrollToSection = (selector: string): void => {
 const items = ref<MenuItem[]>([
   { label: 'Home', command: () => scrollToSection('#home') },
   { label: 'About', command: () => scrollToSection('#profile') },
-  { label: 'Skills', command: () => scrollToSection('#skills') },
+  // { label: 'Skills', command: () => scrollToSection('#skills') },
   { label: 'Projects', command: () => scrollToSection('#projects') },
-  { label: 'Contact', command: () => scrollToSection('#contact') },
+  // { label: 'Contact', command: () => scrollToSection('#contact') },
 ])
 </script>
 
