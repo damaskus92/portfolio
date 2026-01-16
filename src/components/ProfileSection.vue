@@ -1,9 +1,9 @@
 <template>
-  <section id="profile" class="relative py-30 px-4 overflow-hidden">
+  <section id="profile" class="relative py-24 px-4 overflow-hidden">
     <div class="absolute inset-0 bg-first-section pointer-events-none"></div>
 
     <div class="relative max-w-7xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center">About Me</h2>
+      <!-- <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center">About Me</h2> -->
 
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Profile Overview Card (Full Width) -->

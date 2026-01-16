@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="relative py-30 px-4 overflow-hidden">
+  <section id="projects" class="relative py-24 px-4 overflow-hidden">
     <div class="absolute inset-0 bg-last-section pointer-events-none"></div>
 
     <div class="relative max-w-7xl mx-auto">
@@ -32,11 +32,10 @@
               ></div>
             </div>
 
-            <Chip
+            <!-- <Chip
               :label="project.url ? 'Live' : 'Internal'"
-              :severity="project.url ? 'success' : 'secondary'"
-              class="absolute top-3 right-3"
-            />
+              class="absolute top-3 right-3 py-1.5 bg-white/50 text-gray-200 border border-white/20"
+            /> -->
           </template>
 
           <!-- CONTENT -->
@@ -71,7 +70,9 @@
                   icon="pi pi-external-link"
                   iconPos="right"
                   size="small"
+                  outlined
                   @click="openProject(project.url)"
+                  class="text-primary-contrast hover:text-primary border-white/20"
                 />
               </div>
             </div>
@@ -125,7 +126,7 @@ const projects = ref<Project[]>([
     title: 'e-LKP',
     category: 'Employee Daily Reporting System',
     description:
-      'A web-based employee management application designed for daily work activity reporting. The system allows employees to submit daily job reports while enabling administrators to monitor performance, track work progress, and manage employee data efficiently.',
+      'An internal application designed for reporting daily work activities. This system allows employees to submit daily work reports while also allowing administrators to monitor performance, track work progress, and efficiently manage employee data.',
     image: eLkpImg,
     technologies: ['Codeigniter', 'Admin LTE', 'Bootstrap', 'jQuery', 'MySQL'],
     url: null,

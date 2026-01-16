@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="relative py-30 px-4 overflow-hidden">
+  <section id="services" class="relative py-24 px-4 overflow-hidden">
     <div class="absolute inset-0 bg-continue-section pointer-events-none"></div>
 
     <div class="relative max-w-7xl mx-auto">

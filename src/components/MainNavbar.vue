@@ -1,17 +1,9 @@
 <template>
   <header class="fixed top-0 inset-x-0 z-50">
-    <Menubar :model="items" class="navbar-glass">
+    <Menubar :model="items" :pt="menubarPT">
       <!-- Brand -->
       <template #start>
-        <span class="brand-text"> Portfolio </span>
-      </template>
-
-      <!-- Menu (Right aligned) -->
-      <template #end>
-        <div class="flex items-center gap-2">
-          <!-- Desktop menu already handled by Menubar -->
-          <Button icon="pi pi-bars" class="md:hidden" text rounded aria-label="Menu" />
-        </div>
+        <span class="brand-text">My Portfolio</span>
       </template>
     </Menubar>
   </header>
@@ -19,6 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { MenubarPassThroughOptions } from 'primevue/menubar'
 
 interface MenuItem {
   label: string
@@ -34,10 +27,33 @@ const scrollToSection = (selector: string): void => {
 const items = ref<MenuItem[]>([
   { label: 'Home', command: () => scrollToSection('#home') },
   { label: 'About', command: () => scrollToSection('#profile') },
-  // { label: 'Skills', command: () => scrollToSection('#skills') },
+  { label: 'Services', command: () => scrollToSection('#services') },
   { label: 'Projects', command: () => scrollToSection('#projects') },
   // { label: 'Contact', command: () => scrollToSection('#contact') },
 ])
+
+const menubarPT: MenubarPassThroughOptions = {
+  root: {
+    class: 'navbar-glass border-none',
+  },
+  rootList: {
+    class: 'ml-auto',
+  },
+  item: {
+    class: 'bg-transparent',
+  },
+  itemLink: ({ context }) => ({
+    class: [
+      'text-gray-50 font-medium transition-colors duration-200',
+      'hover:text-gray-900',
+      'focus:shadow-none',
+      context.focused ? 'text-gray-900' : '',
+    ],
+  }),
+  button: {
+    class: 'text-gray-200',
+  },
+}
 </script>
 
 <style scoped>
@@ -57,39 +73,5 @@ const items = ref<MenuItem[]>([
   background: linear-gradient(to right, #f9fafb, #9ca3af);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* ================= PRIMEVUE OVERRIDES ================= */
-.p-menubar {
-  border: none;
-}
-
-/* Push menu to the right */
-.p-menubar-root-list {
-  margin-left: auto;
-}
-
-/* Menu item */
-.p-menubar-root-list > .p-menuitem > .p-menuitem-content {
-  background: transparent;
-}
-
-.p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link {
-  color: #9ca3af;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.p-menubar-root-list > .p-menuitem > .p-menuitem-content > .p-menuitem-link:hover {
-  color: #f9fafb;
-}
-
-.p-menuitem-link:focus {
-  box-shadow: none;
-}
-
-/* Mobile button */
-.p-menubar-button {
-  color: #e5e7eb;
 }
 </style>

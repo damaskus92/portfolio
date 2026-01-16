@@ -21,15 +21,32 @@
         </p>
 
         <div class="flex justify-center gap-4 pt-4">
-          <Button label="View Projects" icon="pi pi-arrow-down" iconPos="right" />
-          <Button label="Contact Me" icon="pi pi-envelope" outlined />
+          <Button
+            label="View Projects"
+            icon="pi pi-arrow-down"
+            iconPos="right"
+            @click="scrollToSection('#projects')"
+          />
+          <!-- <Button
+            label="Contact Me"
+            icon="pi pi-envelope"
+            outlined
+            class="text-primary-contrast hover:text-primary border-white/20"
+            @click="scrollToSection('#profile')"
+          /> -->
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const scrollToSection = (selector: string): void => {
+  document.querySelector(selector)?.scrollIntoView({
+    behavior: 'smooth',
+  })
+}
+</script>
 
 <style scoped>
 h1 {
