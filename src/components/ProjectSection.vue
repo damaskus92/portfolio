@@ -20,10 +20,10 @@
           <!-- HEADER (Background Image) -->
           <template #header>
             <div class="relative overflow-hidden aspect-16/10">
-              <!-- Background Image -->
+              <!-- Background Image dengan Lazy Load -->
               <div
-                class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
-                :style="{ backgroundImage: `url(${project.image})` }"
+                v-lazyload="project.image"
+                class="absolute inset-0 bg-center bg-cover transition-all duration-700 opacity-0"
               ></div>
 
               <!-- Gradient Overlay -->
@@ -86,9 +86,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import lancarinImg from '@/assets/projects/lancarin.png'
-import gamelabImg from '@/assets/projects/gamelab.png'
-import eLkpImg from '@/assets/projects/e-lkp.png'
+import lancarinImg from '@/assets/projects/lancarin.webp'
+import gamelabImg from '@/assets/projects/gamelab.webp'
+import eLkpImg from '@/assets/projects/e-lkp.webp'
 
 interface Project {
   id: number

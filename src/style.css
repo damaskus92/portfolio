@@ -48,3 +48,8 @@ html {
     rgba(2, 6, 23, 0) 100%
   );
 }
+
+.lazy-loaded {
+  opacity: 1 !important;
+  transition: opacity 0.5s ease-in-out;
+}

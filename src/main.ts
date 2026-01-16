@@ -7,6 +7,7 @@ import Lara from '@primeuix/themes/lara'
 
 import App from './App.vue'
 import router from './router'
+import { lazyload } from './directives/lazyload'
 
 import './style.css'
 
@@ -89,5 +90,6 @@ app.use(PrimeVue, {
   },
   ripple: true,
 })
+app.directive('lazyload', lazyload)
 
 app.mount('#app')
