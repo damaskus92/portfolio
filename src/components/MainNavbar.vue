@@ -42,16 +42,26 @@ const menubarPT: MenubarPassThroughOptions = {
   item: {
     class: 'bg-transparent',
   },
+  itemContent: {
+    class: 'bg-transparent',
+  },
   itemLink: ({ context }) => ({
     class: [
-      'text-gray-50 font-medium transition-colors duration-200',
-      'hover:text-gray-900',
+      'text-gray-50 font-medium transition-colors duration-200 rounded-lg',
+      'hover:text-gray-900 hover:bg-white/10',
       'focus:shadow-none',
-      context.focused ? 'text-gray-900' : '',
+      context.focused ? 'text-gray-900 bg-white/10' : '',
     ],
   }),
+  itemLabel: {
+    class: 'text-gray-50',
+  },
   button: {
-    class: 'text-gray-200',
+    class:
+      'text-gray-50 ml-auto h-[40px] w-[40px] hover:bg-white/10 transition-colors duration-200',
+  },
+  buttonIcon: {
+    class: 'text-gray-50',
   },
 }
 </script>
@@ -73,5 +83,39 @@ const menubarPT: MenubarPassThroughOptions = {
   background: linear-gradient(to right, #f9fafb, #9ca3af);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* ================= DESKTOP MENU ================= */
+:deep(.p-menubar-item-link) {
+  border-radius: 0.5rem;
+}
+
+:deep(.p-menubar-item-link:hover) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:deep(.p-menubar-item-link:focus) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ================= MOBILE MENU ================= */
+:deep(.p-menubar-mobile-active .p-menubar-root-list) {
+  background: rgba(2, 6, 23, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+:deep(.p-menubar-mobile-active .p-menubar-item-link) {
+  color: rgb(249, 250, 251) !important;
+  border-radius: 0;
+}
+
+:deep(.p-menubar-mobile-active .p-menubar-item-link:hover) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgb(249, 250, 251) !important;
+}
+
+:deep(.p-menubar-mobile-active .p-menubar-item-label) {
+  color: rgb(249, 250, 251) !important;
 }
 </style>

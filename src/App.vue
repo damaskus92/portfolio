@@ -95,8 +95,8 @@ const handleMouseMove = (e: MouseEvent) => {
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(100, 116, 139, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 116, 139, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 40%, transparent 100%);
 }
