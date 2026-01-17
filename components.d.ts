@@ -17,12 +17,10 @@ declare module 'vue' {
     ContactCard: typeof import('./src/components/profile/ContactCard.vue')['default']
     ContactSection: typeof import('./src/components/ContactSection.vue')['default']
     HeroSection: typeof import('./src/components/HeroSection.vue')['default']
-    InputText: typeof import('primevue/inputtext')['default']
     MainFooter: typeof import('./src/components/MainFooter.vue')['default']
     MainNavbar: typeof import('./src/components/MainNavbar.vue')['default']
     Menubar: typeof import('primevue/menubar')['default']
     OverviewCard: typeof import('./src/components/profile/OverviewCard.vue')['default']
-    ProfileOverviewCard: typeof import('./src/components/profile/ProfileOverviewCard.vue')['default']
     ProfileSection: typeof import('./src/components/ProfileSection.vue')['default']
     ProjectSection: typeof import('./src/components/ProjectSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -32,6 +30,5 @@ declare module 'vue' {
     Tag: typeof import('primevue/tag')['default']
     TechCategory: typeof import('./src/components/profile/TechCategory.vue')['default']
     TechStackCard: typeof import('./src/components/profile/TechStackCard.vue')['default']
-    Textarea: typeof import('primevue/textarea')['default']
   }
 }
