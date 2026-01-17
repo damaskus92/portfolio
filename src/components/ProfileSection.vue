@@ -32,6 +32,7 @@
                   </template>
                 </Chip>
                 <Chip
+                  v-if="availability.isOpenForWork"
                   label="Available for Work"
                   class="bg-emerald-600/10 text-emerald-500 border border-emerald-600/20 font-semibold text-sm"
                 />
@@ -230,9 +231,18 @@
 </template>
 
 <script setup lang="ts">
+import { useAvailabilityStore } from '@/stores/availability'
+import { onMounted } from 'vue'
+
+const availability = useAvailabilityStore()
+
 const openLink = (url: string) => {
   window.open(url, '_blank')
 }
+
+onMounted(() => {
+  availability.fetchStatus()
+})
 </script>
 
 <style scoped>
