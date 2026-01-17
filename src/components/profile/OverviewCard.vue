@@ -97,18 +97,14 @@ defineProps<{
   isOpenWork: boolean
 }>()
 
+const CV_GOOGLE_DRIVE_ID = '1eOTFSUu90QVdTUF_7yjdf1XNSkB-XOeV'
+
 const openLink = (url: string) => {
   window.open(url, '_blank')
 }
 
 const downloadCV = () => {
-  // Opsi 1: Link langsung ke file PDF di public folder
-  const link = document.createElement('a')
-  link.href = '/docs/CV_DAMAS_EKA_KUSUMA.pdf'
-  link.download = 'CV_DAMAS_EKA_KUSUMA.pdf'
-  link.click()
-
-  // Opsi 2: Jika PDF di external link (Google Drive, Dropbox, dll)
-  // window.open('https://drive.google.com/file/d/YOUR_FILE_ID/view', '_blank')
+  const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_GOOGLE_DRIVE_ID}`
+  window.open(downloadUrl, '_blank')
 }
 </script>
