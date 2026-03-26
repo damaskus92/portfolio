@@ -97,7 +97,7 @@ defineProps<{
   isOpenWork: boolean
 }>()
 
-const CV_GOOGLE_DRIVE_ID = '1eOTFSUu90QVdTUF_7yjdf1XNSkB-XOeV'
+const CV_GOOGLE_DRIVE_ID = '13iKIQp8DlrHrvGG6lYHVARZeZP5hsBys'
 
 const openLink = (url: string) => {
   window.open(url, '_blank')

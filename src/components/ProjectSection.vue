@@ -86,6 +86,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import dazoBiolinkImg from '@/assets/projects/dazo-biolink.webp'
+import dazoDashboardImg from '@/assets/projects/dazo-dashboard.webp'
 import lancarinImg from '@/assets/projects/lancarin.webp'
 import gamelabImg from '@/assets/projects/gamelab.webp'
 import eLkpImg from '@/assets/projects/e-lkp.webp'
@@ -103,16 +105,36 @@ interface Project {
 const projects = ref<Project[]>([
   {
     id: 1,
+    title: 'Dazo - Digital Store',
+    category: 'Digital storefront of online store',
+    description:
+      'A digital storefront that allows businesses to market products, share catalogs on social media, and expand sales reach in an integrated manner with their order management system.',
+    image: dazoBiolinkImg,
+    technologies: ['Laravel', 'Inertia', 'Vue.js', 'Bootstrap', 'MongoDB', 'Payment Integration'],
+    url: 'https://dazo.id/product99',
+  },
+  {
+    id: 2,
+    title: 'Dazo - Dashboard',
+    category: 'Order Management Platform',
+    description:
+      'A platform that provides Order Management System, AI Chat Assistant, and Digital Store creation features to help automate order management, respond to customers, and manage sales operations efficiently in one convenient dashboard.',
+    image: dazoDashboardImg,
+    technologies: ['Laravel', 'Inertia', 'Vue.js', 'Bootstrap', 'MongoDB', 'Payment Integration'],
+    url: 'https://app.dazo.id/login',
+  },
+  {
+    id: 3,
     title: 'Quiz Lancarin',
     category: 'Web-Based English Learning Quiz',
     description:
       'A web-based English learning quiz platform that uses gamification to boost user engagement and make studying more enjoyable. Features include a centralized question bank, automated scoring, real-time result display, and social media sharing of scores and achievements.',
     image: lancarinImg,
-    technologies: ['Laravel', 'Inertia', 'Vue.js', 'Tailwind CSS', 'MySQL', 'Filament Admin'],
+    technologies: ['Laravel', 'Inertia', 'Vue.js', 'Tailwind', 'MySQL', 'Filament Admin'],
     url: 'https://quiz.lancarin.id',
   },
   {
-    id: 2,
+    id: 4,
     title: 'Gamelab Indonesia',
     category: 'Online Education & Training System',
     description:
@@ -122,7 +144,7 @@ const projects = ref<Project[]>([
     url: 'https://gamelab.id',
   },
   {
-    id: 3,
+    id: 5,
     title: 'e-LKP',
     category: 'Employee Daily Reporting System',
     description:

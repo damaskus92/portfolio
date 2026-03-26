@@ -25,14 +25,14 @@
 import TechCategory from './TechCategory.vue'
 
 const techStack = {
-  backend: ['PHP', 'Laravel', 'CodeIgniter', 'Slim', 'MySQL', 'Medoo'],
+  backend: ['Laravel', 'Codeigniter', 'Slim', 'Express.js', 'MySQL', 'Medoo', 'MongoDB'],
   frontend: [
     'Vue.js',
+    'React.js',
     'Inertia.js',
     'Livewire',
-    'JavaScript',
     'TypeScript',
-    'Tailwind CSS',
+    'Tailwind',
     'Bootstrap',
     'jQuery',
   ],
