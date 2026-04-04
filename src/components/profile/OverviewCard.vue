@@ -10,7 +10,7 @@
             <Chip
               label="Github"
               class="bg-white/10 text-gray-200 border border-white/20 font-semibold text-sm cursor-pointer hover:bg-white/20 transition"
-              @click="openLink('https://github.com/damaskus92')"
+              @click="openGithub"
             >
               <template #icon>
                 <i class="pi pi-github text-gray-200" />
@@ -20,7 +20,7 @@
             <Chip
               label="LinkedIn"
               class="bg-white/10 text-gray-200 border border-white/20 font-semibold text-sm cursor-pointer hover:bg-white/20 transition"
-              @click="openLink('https://linkedin.com/in/damaskus92')"
+              @click="openLinkedin"
             >
               <template #icon>
                 <i class="pi pi-linkedin text-gray-200" />
@@ -93,17 +93,26 @@
 </template>
 
 <script setup lang="ts">
+import { track } from '@vercel/analytics'
+
 defineProps<{
   isOpenWork: boolean
 }>()
 
 const CV_GOOGLE_DRIVE_ID = '13iKIQp8DlrHrvGG6lYHVARZeZP5hsBys'
 
-const openLink = (url: string) => {
-  window.open(url, '_blank')
+const openGithub = () => {
+  track('cta_github', { source: 'profile' })
+  window.open('https://github.com/damaskus92', '_blank')
+}
+
+const openLinkedin = () => {
+  track('cta_linkedin', { source: 'profile' })
+  window.open('https://linkedin.com/in/damaskus92', '_blank')
 }
 
 const downloadCV = () => {
+  track('cta_download_cv')
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_GOOGLE_DRIVE_ID}`
   window.open(downloadUrl, '_blank')
 }

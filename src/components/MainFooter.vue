@@ -11,6 +11,7 @@
             rel="noopener noreferrer"
             class="text-gray-400 hover:text-white transition-colors"
             aria-label="GitHub"
+            @click="trackCta('cta_github')"
           >
             <i class="pi pi-github text-xl"></i>
           </a>
@@ -20,6 +21,7 @@
             rel="noopener noreferrer"
             class="text-gray-400 hover:text-white transition-colors"
             aria-label="LinkedIn"
+            @click="trackCta('cta_linkedin')"
           >
             <i class="pi pi-linkedin text-xl"></i>
           </a>
@@ -40,8 +42,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { track } from '@vercel/analytics'
 
 const currentYear = computed(() => new Date().getFullYear())
+
+const trackCta = (eventName: string) => {
+  track(eventName, { source: 'footer' })
+}
 </script>
 
 <style scoped></style>

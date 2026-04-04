@@ -1,4 +1,5 @@
 <template>
+  <Analytics />
   <div class="relative overflow-hidden" @mousemove="handleMouseMove">
     <!-- Base background -->
     <div class="fixed inset-0 -z-30 base-bg"></div>
@@ -27,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+import { Analytics } from '@vercel/analytics/vue'
 import MainNavbar from './components/MainNavbar.vue'
 import HeroSection from './components/HeroSection.vue'
 import ProfileSection from './components/ProfileSection.vue'
