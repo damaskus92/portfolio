@@ -1,15 +1,19 @@
 <template>
-  <footer class="py-8 px-4">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col items-center gap-4 text-center">
-        <p class="text-gray-400">© {{ currentYear }} Damas Eka Kusuma. All rights reserved.</p>
+  <footer class="relative py-12 px-4">
+    <!-- Gradient separator -->
+    <div
+      class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent/20 to-transparent"
+    ></div>
 
-        <div class="flex items-center gap-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <!-- Social Links -->
+        <div class="flex items-center gap-5">
           <a
             href="https://github.com/damaskus92"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 hover:text-white transition-colors"
+            class="text-slate-500 hover:text-accent transition-colors duration-200"
             aria-label="GitHub"
             @click="trackCta('cta_github')"
           >
@@ -19,7 +23,7 @@
             href="https://linkedin.com/in/damaskus92"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 hover:text-white transition-colors"
+            class="text-slate-500 hover:text-accent transition-colors duration-200"
             aria-label="LinkedIn"
             @click="trackCta('cta_linkedin')"
           >
@@ -27,28 +31,30 @@
           </a>
           <a
             href="mailto:damaskusuma92@gmail.com"
-            class="text-gray-400 hover:text-white transition-colors"
+            class="text-slate-500 hover:text-accent transition-colors duration-200"
             aria-label="Email"
           >
             <i class="pi pi-envelope text-xl"></i>
           </a>
         </div>
 
-        <p class="text-gray-500 text-sm">Built with Vue.js & PrimeVue</p>
+        <!-- Credit -->
+        <div class="space-y-1">
+          <p class="text-slate-500 text-sm">
+            Designed & Built by
+            <span class="text-slate-400">Damas Eka Kusuma</span>
+          </p>
+          <p class="text-slate-600 text-xs font-mono">Built with Vue.js, PrimeVue & Tailwind CSS</p>
+        </div>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { track } from '@vercel/analytics'
-
-const currentYear = computed(() => new Date().getFullYear())
 
 const trackCta = (eventName: string) => {
   track(eventName, { source: 'footer' })
 }
 </script>
-
-<style scoped></style>

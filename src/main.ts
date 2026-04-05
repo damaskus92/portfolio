@@ -9,7 +9,13 @@ import App from './App.vue'
 import router from './router'
 import { lazyload } from './directives/lazyload'
 
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 import './style.css'
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger)
 
 const app = createApp(App)
 
@@ -51,7 +57,7 @@ const Noir = definePreset(Lara, {
           activeColor: '{gray.50}',
         },
         highlight: {
-          background: 'rgba(229, 231, 235, .16)', // gray-200 with opacity
+          background: 'rgba(229, 231, 235, .16)',
           focusBackground: 'rgba(229, 231, 235, .24)',
           color: 'rgba(255,255,255,.87)',
           focusColor: 'rgba(255,255,255,.87)',

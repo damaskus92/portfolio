@@ -1,121 +1,120 @@
 <template>
   <header class="fixed top-0 inset-x-0 z-50">
-    <Menubar :model="items" :pt="menubarPT">
-      <!-- Brand -->
-      <template #start>
-        <span class="brand-text">My Portfolio</span>
-      </template>
-    </Menubar>
+    <nav class="navbar-glass">
+      <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-4">
+        <!-- Brand -->
+        <a
+          href="#home"
+          class="brand-text text-xl font-extrabold tracking-tight"
+          @click.prevent="scrollToSection('#home')"
+        >
+          damas<span class="text-accent">.</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+          <a
+            v-for="item in navItems"
+            :key="item.id"
+            :href="`#${item.id}`"
+            :class="[
+              'px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+              activeSection === item.id
+                ? 'text-accent bg-accent/8'
+                : 'text-slate-400 hover:text-white hover:bg-white/5',
+            ]"
+            @click.prevent="scrollToSection(`#${item.id}`)"
+          >
+            <span class="font-mono text-xs mr-1 opacity-60">{{ item.number }}.</span>
+            {{ item.label }}
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          aria-label="Toggle menu"
+        >
+          <i :class="mobileMenuOpen ? 'pi pi-times' : 'pi pi-bars'" class="text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <transition
+        enter-active-class="transition-all duration-300 ease-out"
+        leave-active-class="transition-all duration-200 ease-in"
+        enter-from-class="opacity-0 -translate-y-2"
+        enter-to-class="opacity-100 translate-y-0"
+        leave-from-class="opacity-100 translate-y-0"
+        leave-to-class="opacity-0 -translate-y-2"
+      >
+        <div v-if="mobileMenuOpen" class="md:hidden border-t border-white/5 pb-4">
+          <a
+            v-for="item in navItems"
+            :key="item.id"
+            :href="`#${item.id}`"
+            :class="[
+              'block px-6 py-3 text-sm font-medium transition-colors',
+              activeSection === item.id
+                ? 'text-accent bg-accent/5'
+                : 'text-slate-400 hover:text-white hover:bg-white/5',
+            ]"
+            @click.prevent="handleMobileClick(item.id)"
+          >
+            <span class="font-mono text-xs mr-2 opacity-60">{{ item.number }}.</span>
+            {{ item.label }}
+          </a>
+        </div>
+      </transition>
+    </nav>
   </header>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { MenubarPassThroughOptions } from 'primevue/menubar'
+import { useScrollSpy } from '@/composables/useScrollSpy'
+import { useScrollTo } from '@/composables/useScrollTo'
 
-interface MenuItem {
+interface NavItem {
+  id: string
   label: string
-  command: () => void
+  number: string
 }
 
-const scrollToSection = (selector: string): void => {
-  document.querySelector(selector)?.scrollIntoView({
-    behavior: 'smooth',
-  })
-}
+const navItems: NavItem[] = [
+  { id: 'home', label: 'Home', number: '00' },
+  { id: 'about', label: 'About', number: '01' },
+  { id: 'experience', label: 'Experience', number: '02' },
+  { id: 'services', label: 'Services', number: '03' },
+  { id: 'projects', label: 'Projects', number: '04' },
+  { id: 'contact', label: 'Contact', number: '05' },
+]
 
-const items = ref<MenuItem[]>([
-  { label: 'Home', command: () => scrollToSection('#home') },
-  { label: 'About', command: () => scrollToSection('#profile') },
-  { label: 'Services', command: () => scrollToSection('#services') },
-  { label: 'Projects', command: () => scrollToSection('#projects') },
-  // { label: 'Contact', command: () => scrollToSection('#contact') },
-])
+const mobileMenuOpen = ref(false)
+const { scrollToSection } = useScrollTo()
+const { activeSection } = useScrollSpy(navItems.map((i) => i.id))
 
-const menubarPT: MenubarPassThroughOptions = {
-  root: {
-    class: 'navbar-glass border-none',
-  },
-  rootList: {
-    class: 'ml-auto',
-  },
-  item: {
-    class: 'bg-transparent',
-  },
-  itemContent: {
-    class: 'bg-transparent',
-  },
-  itemLink: ({ context }) => ({
-    class: [
-      'text-gray-50 font-medium transition-colors duration-200 rounded-lg',
-      'hover:text-gray-900 hover:bg-white/10',
-      'focus:shadow-none',
-      context.focused ? 'text-gray-900 bg-white/10' : '',
-    ],
-  }),
-  itemLabel: {
-    class: 'text-gray-50',
-  },
-  button: {
-    class:
-      'text-gray-50 ml-auto h-[40px] w-[40px] hover:bg-white/10 transition-colors duration-200',
-  },
-  buttonIcon: {
-    class: 'text-gray-50',
-  },
+const handleMobileClick = (id: string) => {
+  mobileMenuOpen.value = false
+  scrollToSection(`#${id}`)
 }
 </script>
 
 <style scoped>
-/* ================= GLASS NAVBAR ================= */
 .navbar-glass {
-  background: rgba(2, 6, 23, 0.75);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-inline: 1rem;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
 }
 
-/* ================= BRAND ================= */
 .brand-text {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  background: linear-gradient(to right, #f9fafb, #9ca3af);
+  background: linear-gradient(to right, #f8fafc, #cbd5e1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ================= DESKTOP MENU ================= */
-:deep(.p-menubar-item-link) {
-  border-radius: 0.5rem;
-}
-
-:deep(.p-menubar-item-link:hover) {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-:deep(.p-menubar-item-link:focus) {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ================= MOBILE MENU ================= */
-:deep(.p-menubar-mobile-active .p-menubar-root-list) {
-  background: rgba(2, 6, 23, 0.98);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-:deep(.p-menubar-mobile-active .p-menubar-item-link) {
-  color: rgb(249, 250, 251) !important;
-  border-radius: 0;
-}
-
-:deep(.p-menubar-mobile-active .p-menubar-item-link:hover) {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: rgb(249, 250, 251) !important;
-}
-
-:deep(.p-menubar-mobile-active .p-menubar-item-label) {
-  color: rgb(249, 250, 251) !important;
+.brand-text span {
+  -webkit-text-fill-color: var(--accent);
 }
 </style>

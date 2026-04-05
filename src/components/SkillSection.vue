@@ -3,61 +3,118 @@
     <div class="absolute inset-0 bg-continue-section pointer-events-none"></div>
 
     <div class="relative max-w-7xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center">
-        Skills & Technologies
-      </h2>
-
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <Card
-          v-for="skill in skills"
-          :key="skill.name"
-          class="group bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/30 transition-all duration-300"
+      <!-- Section Heading -->
+      <div class="mb-16 text-center">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-white inline-block section-heading section-heading-center"
         >
-          <template #content>
-            <div class="flex flex-col items-center justify-center gap-4 py-6">
-              <i
-                :class="`pi ${skill.icon} text-5xl text-gray-300 group-hover:text-white transition-colors`"
-              ></i>
+          <span class="text-accent font-mono text-xl mr-2">05.</span> Skills & Technologies
+        </h2>
+      </div>
 
-              <h3 class="text-gray-200 font-semibold tracking-wide">
-                {{ skill.name }}
-              </h3>
+      <!-- Marquee Container -->
+      <div class="marquee-container space-y-4 overflow-hidden">
+        <!-- Row 1 - scrolls left -->
+        <div class="flex marquee-left whitespace-nowrap">
+          <div class="flex gap-3 pr-3" v-for="n in 2" :key="'row1-' + n">
+            <div
+              v-for="(skill, index) in row1Skills"
+              :key="`row1-${n}-${index}`"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/8 hover:border-accent/25 hover:bg-accent/5 transition-all duration-300 cursor-default"
+            >
+              <i :class="`pi ${skill.icon} text-accent/70 text-sm`"></i>
+              <span class="text-slate-300 text-sm font-medium">{{ skill.name }}</span>
             </div>
-          </template>
-        </Card>
+          </div>
+        </div>
+
+        <!-- Row 2 - scrolls right -->
+        <div class="flex marquee-right whitespace-nowrap">
+          <div class="flex gap-3 pr-3" v-for="n in 2" :key="'row2-' + n">
+            <div
+              v-for="(skill, index) in row2Skills"
+              :key="`row2-${n}-${index}`"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/8 hover:border-accent/25 hover:bg-accent/5 transition-all duration-300 cursor-default"
+            >
+              <i :class="`pi ${skill.icon} text-accent/70 text-sm`"></i>
+              <span class="text-slate-300 text-sm font-medium">{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3 - scrolls left (slower) -->
+        <div class="flex marquee-left-slow whitespace-nowrap">
+          <div class="flex gap-3 pr-3" v-for="n in 2" :key="'row3-' + n">
+            <div
+              v-for="(skill, index) in row3Skills"
+              :key="`row3-${n}-${index}`"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 border border-white/8 hover:border-accent/25 hover:bg-accent/5 transition-all duration-300 cursor-default"
+            >
+              <i :class="`pi ${skill.icon} text-accent/70 text-sm`"></i>
+              <span class="text-slate-300 text-sm font-medium">{{ skill.name }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 interface Skill {
   name: string
   icon: string
 }
 
-const skills = ref<Skill[]>([
-  { name: 'Vue.js', icon: 'pi-code' },
-  { name: 'TypeScript', icon: 'pi-file-code' },
-  { name: 'Tailwind', icon: 'pi-palette' },
-  { name: 'Node.js', icon: 'pi-server' },
-  { name: 'Database', icon: 'pi-database' },
-  { name: 'Git', icon: 'pi-git' },
-  { name: 'UI/UX', icon: 'pi-pencil' },
-  { name: 'Testing', icon: 'pi-verified' },
-])
+const row1Skills: Skill[] = [
+  { name: 'Laravel', icon: 'pi-code' },
+  { name: 'Vue.js', icon: 'pi-star' },
+  { name: 'TypeScript', icon: 'pi-file-edit' },
+  { name: 'React.js', icon: 'pi-code' },
+  { name: 'PHP', icon: 'pi-server' },
+  { name: 'Inertia.js', icon: 'pi-arrow-right-arrow-left' },
+  { name: 'Livewire', icon: 'pi-bolt' },
+  { name: 'Express.js', icon: 'pi-server' },
+]
+
+const row2Skills: Skill[] = [
+  { name: 'MySQL', icon: 'pi-database' },
+  { name: 'MongoDB', icon: 'pi-database' },
+  { name: 'Tailwind CSS', icon: 'pi-palette' },
+  { name: 'Bootstrap', icon: 'pi-th-large' },
+  { name: 'jQuery', icon: 'pi-code' },
+  { name: 'REST API', icon: 'pi-cloud' },
+  { name: 'Filament', icon: 'pi-objects-column' },
+  { name: 'PrimeVue', icon: 'pi-prime' },
+]
+
+const row3Skills: Skill[] = [
+  { name: 'Git', icon: 'pi-github' },
+  { name: 'GitHub', icon: 'pi-github' },
+  { name: 'GitLab', icon: 'pi-gitlab' },
+  { name: 'Figma', icon: 'pi-pencil' },
+  { name: 'Postman', icon: 'pi-send' },
+  { name: 'Notion', icon: 'pi-clipboard' },
+  { name: 'Vercel', icon: 'pi-cloud-upload' },
+  { name: 'Docker', icon: 'pi-box' },
+]
 </script>
 
 <style scoped>
-:deep(.p-card) {
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
+@keyframes marquee-left-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-:deep(.p-card:hover) {
-  transform: translateY(-6px);
+.marquee-left-slow {
+  animation: marquee-left-slow 40s linear infinite;
+}
+
+.marquee-container:hover .marquee-left-slow {
+  animation-play-state: paused;
 }
 </style>

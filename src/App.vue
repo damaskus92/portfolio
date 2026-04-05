@@ -15,27 +15,15 @@
     <!-- Content -->
     <div class="relative z-10 min-h-screen">
       <MainNavbar />
-
-      <HeroSection />
-      <ProfileSection />
-      <ServiceSection />
-      <ProjectSection />
-      <!-- <ContactSection /> -->
-
-      <MainFooter />
+      <RouterView />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Analytics } from '@vercel/analytics/vue'
+import { RouterView } from 'vue-router'
 import MainNavbar from './components/MainNavbar.vue'
-import HeroSection from './components/HeroSection.vue'
-import ProfileSection from './components/ProfileSection.vue'
-import ProjectSection from './components/ProjectSection.vue'
-// import ContactSection from './components/ContactSection.vue'
-import MainFooter from './components/MainFooter.vue'
-import ServiceSection from './components/ServiceSection.vue'
 
 const handleMouseMove = (e: MouseEvent) => {
   const x = (e.clientX / window.innerWidth) * 100
@@ -49,6 +37,7 @@ const handleMouseMove = (e: MouseEvent) => {
 <style scoped>
 .base-bg {
   background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.04), transparent),
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(71, 85, 105, 0.12), transparent), #020617;
 }
 
@@ -56,8 +45,8 @@ const handleMouseMove = (e: MouseEvent) => {
 .cursor-light-primary {
   background: radial-gradient(
     250px circle at var(--cursor-x, 50%) var(--cursor-y, 30%),
-    rgba(148, 163, 184, 0.08),
-    rgba(100, 116, 139, 0.05),
+    rgba(20, 184, 166, 0.06),
+    rgba(148, 163, 184, 0.05),
     transparent 50%
   );
   transition:
@@ -71,7 +60,7 @@ const handleMouseMove = (e: MouseEvent) => {
 .cursor-light-secondary {
   background: radial-gradient(
     120px circle at var(--cursor-x, 50%) var(--cursor-y, 30%),
-    rgba(148, 163, 184, 0.12),
+    rgba(20, 184, 166, 0.1),
     rgba(100, 116, 139, 0.06),
     transparent 60%
   );
@@ -81,11 +70,11 @@ const handleMouseMove = (e: MouseEvent) => {
   pointer-events: none;
 }
 
-/* Accent light - subtle color variation */
+/* Accent light - teal color variation */
 .cursor-light-accent {
   background: radial-gradient(
     180px circle at var(--cursor-x, 50%) var(--cursor-y, 30%),
-    rgba(125, 140, 160, 0.06),
+    rgba(20, 184, 166, 0.04),
     rgba(71, 85, 105, 0.03),
     transparent 65%
   );
@@ -97,8 +86,8 @@ const handleMouseMove = (e: MouseEvent) => {
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 40%, transparent 100%);
 }

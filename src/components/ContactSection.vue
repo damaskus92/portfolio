@@ -1,57 +1,61 @@
 <template>
-  <section id="contact" class="py-24 px-4 relative">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center">Get In Touch</h2>
+  <section id="contact" class="relative py-24 px-4 overflow-hidden">
+    <div class="absolute inset-0 bg-last-section pointer-events-none"></div>
 
-      <Card
-        class="bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition"
-      >
-        <template #content>
-          <div class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label class="text-gray-300 text-sm">Name</label>
-                <InputText
-                  placeholder="Your name"
-                  class="w-full bg-black/30 border border-white/10 text-white placeholder-gray-500 focus:border-white/30"
-                />
-              </div>
+    <div class="relative max-w-2xl mx-auto text-center">
+      <!-- Section Number -->
+      <p class="text-accent font-mono text-base mb-4">05. What's Next?</p>
 
-              <div class="space-y-2">
-                <label class="text-gray-300 text-sm">Email</label>
-                <InputText
-                  placeholder="your@email.com"
-                  class="w-full bg-black/30 border border-white/10 text-white placeholder-gray-500 focus:border-white/30"
-                />
-              </div>
-            </div>
+      <!-- Heading -->
+      <h2 ref="headingRef" class="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h2>
 
-            <div class="space-y-2">
-              <label class="text-gray-300 text-sm">Message</label>
-              <Textarea
-                placeholder="Your message..."
-                rows="5"
-                class="w-full bg-black/30 border border-white/10 text-white placeholder-gray-500 focus:border-white/30"
-              />
-            </div>
+      <!-- Description -->
+      <p ref="descRef" class="text-slate-400 text-lg leading-relaxed mb-10 max-w-lg mx-auto">
+        I'm currently open for new opportunities. Whether you have a question, a project idea, or
+        just want to say hi — my inbox is always open.
+      </p>
 
-            <Button
-              label="Send Message"
-              icon="pi pi-send"
-              class="w-full bg-white text-black border-white hover:bg-gray-200 transition"
-            />
-          </div>
-        </template>
-      </Card>
+      <!-- CTA Buttons -->
+      <div ref="ctaRef" class="flex flex-wrap justify-center gap-4">
+        <Button
+          label="Say Hello"
+          icon="pi pi-envelope"
+          iconPos="right"
+          class="bg-transparent! border-accent! hover:bg-accent/10! text-accent! font-semibold px-8 py-3 text-lg"
+          @click="openLink('mailto:damaskusuma92@gmail.com')"
+        />
+        <Button
+          label="WhatsApp"
+          icon="pi pi-whatsapp"
+          iconPos="right"
+          outlined
+          class="text-emerald-400! border-emerald-600/30! hover:bg-emerald-600/10! font-semibold px-8 py-3 text-lg"
+          @click="openLink('https://wa.me/62811358815')"
+        />
+      </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { track } from '@vercel/analytics'
+import { useScrollReveal } from '@/composables/useScrollReveal'
 
-<style scoped>
-:deep(.p-inputtext:focus),
-:deep(.p-textarea:focus) {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+const headingRef = ref<HTMLElement | null>(null)
+const descRef = ref<HTMLElement | null>(null)
+const ctaRef = ref<HTMLElement | null>(null)
+
+const { reveal } = useScrollReveal()
+
+const openLink = (url: string) => {
+  track('cta_contact', { method: url.includes('wa.me') ? 'whatsapp' : 'email', source: 'contact' })
+  window.open(url, '_blank')
 }
-</style>
+
+onMounted(() => {
+  if (headingRef.value) reveal(headingRef.value, { y: 30, duration: 0.6 })
+  if (descRef.value) reveal(descRef.value, { y: 30, duration: 0.6, delay: 0.1 })
+  if (ctaRef.value) reveal(ctaRef.value, { y: 30, duration: 0.6, delay: 0.2 })
+})
+</script>

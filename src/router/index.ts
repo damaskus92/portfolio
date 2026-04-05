@@ -1,4 +1,4 @@
-import Home from '@/App.vue'
+import HomeView from '@/views/HomeView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: HomeView,
     },
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -15,7 +15,7 @@ const router = createRouter({
       return {
         el: to.hash,
         behavior: 'smooth',
-        top: 80, // Offset untuk fixed navbar
+        top: 80,
       }
     }
     if (savedPosition) {
