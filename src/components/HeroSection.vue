@@ -82,7 +82,7 @@ const descRef = ref<HTMLElement | null>(null)
 const ctaRef = ref<HTMLElement | null>(null)
 const statusRef = ref<HTMLElement | null>(null)
 
-const CV_PATH = 'https://drive.google.com/uc?export=download&id=1DSth2qpQjsNtwrh5wL38M4Yvc_ffRbB9'
+const CV_PATH = 'https://drive.google.com/uc?export=download&id=1J1jv-N2d1O9WFudPVexOADIRR5igC5Ri'
 
 const downloadCV = () => {
   track('cta_download_cv', { source: 'hero' })

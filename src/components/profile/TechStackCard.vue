@@ -6,15 +6,13 @@
       <div class="space-y-5">
         <h3 class="text-xl font-bold text-white tracking-tight">Tech Stack</h3>
 
-        <div class="grid md:grid-cols-2 gap-5">
-          <!-- Backend -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <TechCategory title="Programming Languages" :technologies="techStack.languages" />
           <TechCategory title="Backend" :technologies="techStack.backend" />
-
-          <!-- Frontend -->
           <TechCategory title="Frontend" :technologies="techStack.frontend" />
-
-          <!-- Tools -->
-          <TechCategory title="Tools & Others" :technologies="techStack.tools" />
+          <TechCategory title="Database" :technologies="techStack.database" />
+          <TechCategory title="Tools & Workflow" :technologies="techStack.tools" />
+          <TechCategory title="Others" :technologies="techStack.others" />
         </div>
       </div>
     </template>
@@ -23,19 +21,5 @@
 
 <script setup lang="ts">
 import TechCategory from './TechCategory.vue'
-
-const techStack = {
-  backend: ['Laravel', 'Codeigniter', 'Slim', 'Express.js', 'MySQL', 'Medoo', 'MongoDB'],
-  frontend: [
-    'Vue.js',
-    'React.js',
-    'Inertia.js',
-    'Livewire',
-    'TypeScript',
-    'Tailwind',
-    'Bootstrap',
-    'jQuery',
-  ],
-  tools: ['Git', 'GitHub', 'GitLab', 'Postman', 'Notion', 'Figma'],
-}
+import { techStack } from '@/data/techStack'
 </script>
