@@ -28,9 +28,9 @@
 
         <!-- Description -->
         <p ref="descRef" class="text-slate-400 max-w-xl leading-relaxed text-lg opacity-0">
-          Full-Stack Web Developer with 4+ years of experience, focused on building scalable
-          websites and web applications with intuitive design, exceptional user experience, and
-          clean, maintainable code.
+          Full-Stack Developer with 4+ years of experience, focused on building scalable websites
+          and web applications with intuitive design, exceptional user experience, and clean,
+          maintainable code.
         </p>
 
         <!-- CTA Buttons -->
