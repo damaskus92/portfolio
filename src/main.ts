@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createI18n } from 'vue-i18n'
 import PrimeVue from 'primevue/config'
 import { definePreset } from '@primeuix/themes'
 
@@ -11,6 +12,9 @@ import { lazyload } from './directives/lazyload'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import en from './locales/en.json'
+import id from './locales/id.json'
 
 import './style.css'
 
@@ -82,6 +86,16 @@ const Noir = definePreset(Lara, {
 })
 
 app.use(createPinia())
+
+const savedLocale = localStorage.getItem('portfolio-locale') || 'en'
+const i18n = createI18n({
+  legacy: false,
+  locale: savedLocale,
+  fallbackLocale: 'en',
+  messages: { en, id },
+})
+
+app.use(i18n)
 app.use(router)
 app.use(PrimeVue, {
   theme: {

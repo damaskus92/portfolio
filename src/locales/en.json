@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "description": "Full-Stack Developer with 4+ years of experience, focused on building scalable websites and web applications with intuitive design, exceptional user experience, and clean, maintainable code.",
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV",
+    "status": "Available for new opportunities"
+  },
+  "about": {
+    "heading": "About Me",
+    "bio": "Over 4 years of experience in end-to-end web application development with deep expertise in Backend and Frontend development. Focused on building scalable system architecture, writing clean code, and implementing data security to deliver robust and maintainable digital solutions.",
+    "location": "Karanganyar, Central Java",
+    "degree": "Bachelor of Engineering in Informatics",
+    "role": "Full-Stack Developer",
+    "openToWork": "Open to Work",
+    "letsWork": "Let's Work Together",
+    "gotProject": "Got a project? Let's talk.",
+    "emailMe": "Email Me",
+    "techStack": "Tech Stack",
+    "techCategories": {
+      "languages": "Programming Languages",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Database",
+      "tools": "Tools & Workflow",
+      "others": "Others"
+    }
+  },
+  "experience": {
+    "heading": "Experience",
+    "items": [
+      {
+        "title": "Software Engineer",
+        "description": [
+          "Developed and implemented Google Single Sign-On (SSO) for enhanced user authentication.",
+          "Optimized technical SEO strategies to boost website visibility and performance.",
+          "Configured Open Graph (OG) tags for improved social media link previews.",
+          "Integrated various tracking tools to ensure precise measurement of marketing data."
+        ]
+      },
+      {
+        "title": "Full Stack Developer - Freelance",
+        "description": [
+          "Implementing Google Single Sign-On (SSO) for user authentication.",
+          "Gamified Learning: Boosted user engagement by making language practice fun and interactive.",
+          "Real-Time Analytics: Implemented instant scoring and performance feedback for users.",
+          "Social Integration: Integrated social media sharing functionality to encourage community-driven learning.",
+          "Automated Assessment: Built an automated evaluation engine to provide immediate results."
+        ]
+      },
+      {
+        "title": "Full Stack Developer",
+        "description": [
+          "Develop new features and updates to the company internal platform.",
+          "Maintain and optimize tools and platforms.",
+          "Participate in optimizing design and requirements specifications.",
+          "Conduct unit testing and debugging to ensure product quality.",
+          "Collaborate with the team to help identify bottlenecks and provide product improvement suggestions."
+        ]
+      },
+      {
+        "title": "Full Stack Developer",
+        "description": [
+          "Design and develop applications according to client requirements.",
+          "Analyze efficient database designs to support system performance.",
+          "Write clean, structured, and easy-to-understand code.",
+          "Apply design patterns to ensure system scalability and maintainability."
+        ]
+      }
+    ]
+  },
+  "services": {
+    "heading": "What I Do",
+    "subtitle": "I create custom websites and web apps that combine beautiful design with seamless functionality.",
+    "items": [
+      {
+        "title": "Full-Stack Development",
+        "description": "Building interactive front-ends and managing back-ends to bring ideas to life."
+      },
+      {
+        "title": "Landing Page Design",
+        "description": "Building custom landing pages that look great and work smoothly for users."
+      },
+      {
+        "title": "Responsive Design",
+        "description": "Designing layouts that work smoothly on any device for a better user experience."
+      },
+      {
+        "title": "API Integration",
+        "description": "Setting up APIs to enable easy data exchange and communication between services."
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Optimizing application performance for faster load times and better user experience."
+      },
+      {
+        "title": "Database Integration",
+        "description": "Connecting databases to manage and access data effectively in applications."
+      }
+    ]
+  },
+  "projects": {
+    "heading": "Projects",
+    "subtitle": "A collection of my best work, where design meets functionality to solve real-world challenges.",
+    "featured": "Featured Project",
+    "other": "Other Noteworthy Projects",
+    "items": [
+      {
+        "category": "Digital storefront of online store",
+        "description": "A digital storefront that allows businesses to market products, share catalogs on social media, and expand sales reach in an integrated manner with their order management system."
+      },
+      {
+        "category": "Order Management Platform",
+        "description": "A platform that provides Order Management System, AI Chat Assistant, and Digital Store creation features to help automate order management, respond to customers, and manage sales operations efficiently in one convenient dashboard."
+      },
+      {
+        "category": "Web-Based English Learning Quiz",
+        "description": "A web-based English learning quiz platform that uses gamification to boost user engagement and make studying more enjoyable. Features include a centralized question bank, automated scoring, real-time result display, and social media sharing of scores and achievements."
+      },
+      {
+        "category": "Online Education & Training System",
+        "description": "An online education and training platform focused on digital skills development, vocational training, internships, and career readiness. The platform supports project-based learning, skill development programs, and industry-aligned curriculum delivery."
+      },
+      {
+        "category": "Employee Daily Reporting System",
+        "description": "An internal application designed for reporting daily work activities. This system allows employees to submit daily work reports while also allowing administrators to monitor performance, track work progress, and efficiently manage employee data."
+      }
+    ]
+  },
+  "contact": {
+    "section": "What's Next?",
+    "heading": "Get In Touch",
+    "description": "I'm currently open for new opportunities. Whether you have a question, a project idea, or just want to say hi — my inbox is always open.",
+    "descriptionBusy": "Although I'm not actively looking for new opportunities right now, my inbox is always open. Whether you have a question or just want to say hi — feel free to reach out.",
+    "sayHello": "Say Hello"
+  },
+  "footer": {
+    "designedBy": "Designed & Built by",
+    "builtWith": "Built with Vue.js, PrimeVue & Tailwind CSS"
+  }
+}

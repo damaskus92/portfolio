@@ -72,9 +72,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useScrollSpy } from '@/composables/useScrollSpy'
 import { useScrollTo } from '@/composables/useScrollTo'
+
+const { t } = useI18n()
 
 interface NavItem {
   id: string
@@ -82,18 +85,20 @@ interface NavItem {
   number: string
 }
 
-const navItems: NavItem[] = [
-  { id: 'home', label: 'Home', number: '00' },
-  { id: 'about', label: 'About', number: '01' },
-  { id: 'experience', label: 'Experience', number: '02' },
-  { id: 'services', label: 'Services', number: '03' },
-  { id: 'projects', label: 'Projects', number: '04' },
-  { id: 'contact', label: 'Contact', number: '05' },
-]
+const sectionIds = ['home', 'about', 'experience', 'services', 'projects', 'contact']
+
+const navItems = computed<NavItem[]>(() => [
+  { id: 'home', label: t('nav.home'), number: '00' },
+  { id: 'about', label: t('nav.about'), number: '01' },
+  { id: 'experience', label: t('nav.experience'), number: '02' },
+  { id: 'services', label: t('nav.services'), number: '03' },
+  { id: 'projects', label: t('nav.projects'), number: '04' },
+  { id: 'contact', label: t('nav.contact'), number: '05' },
+])
 
 const mobileMenuOpen = ref(false)
 const { scrollToSection } = useScrollTo()
-const { activeSection } = useScrollSpy(navItems.map((i) => i.id))
+const { activeSection } = useScrollSpy(sectionIds)
 
 const handleMobileClick = (id: string) => {
   mobileMenuOpen.value = false

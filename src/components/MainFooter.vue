@@ -41,10 +41,10 @@
         <!-- Credit -->
         <div class="space-y-1">
           <p class="text-slate-500 text-sm">
-            Designed & Built by
+            {{ t('footer.designedBy') }}
             <span class="text-slate-400">Damas Eka Kusuma</span>
           </p>
-          <p class="text-slate-600 text-xs font-mono">Built with Vue.js, PrimeVue & Tailwind CSS</p>
+          <p class="text-slate-600 text-xs font-mono">{{ t('footer.builtWith') }}</p>
         </div>
       </div>
     </div>
@@ -52,7 +52,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { track } from '@vercel/analytics'
+
+const { t } = useI18n()
 
 const trackCta = (eventName: string) => {
   track(eventName, { source: 'footer' })

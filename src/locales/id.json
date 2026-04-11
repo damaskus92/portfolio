@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "services": "Layanan",
+    "projects": "Proyek",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "Halo, nama saya",
+    "description": "Full-Stack Developer dengan pengalaman lebih dari 4 tahun, berfokus pada pembangunan website dan aplikasi web yang skalabel dengan desain intuitif, pengalaman pengguna yang luar biasa, serta kode yang bersih dan mudah dikelola.",
+    "viewProjects": "Lihat Proyek",
+    "downloadCV": "Unduh CV",
+    "status": "Terbuka untuk kesempatan baru"
+  },
+  "about": {
+    "heading": "Tentang Saya",
+    "bio": "Lebih dari 4 tahun pengalaman dalam pengembangan aplikasi web secara menyeluruh dengan keahlian mendalam di bidang Backend dan Frontend. Berfokus pada pembangunan arsitektur sistem yang skalabel, penulisan kode yang bersih, dan penerapan keamanan data untuk menghasilkan solusi digital yang kokoh dan mudah dipelihara.",
+    "location": "Karanganyar, Jawa Tengah",
+    "degree": "Sarjana Teknik Informatika",
+    "role": "Full-Stack Developer",
+    "openToWork": "Terbuka untuk Bekerja",
+    "letsWork": "Mari Bekerja Sama",
+    "gotProject": "Punya proyek? Mari diskusi.",
+    "emailMe": "Kirim Email",
+    "techStack": "Tech Stack",
+    "techCategories": {
+      "languages": "Bahasa Pemrograman",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Basis Data",
+      "tools": "Alat & Alur Kerja",
+      "others": "Lainnya"
+    }
+  },
+  "experience": {
+    "heading": "Pengalaman",
+    "items": [
+      {
+        "title": "Software Engineer",
+        "description": [
+          "Mengembangkan dan mengimplementasikan Google Single Sign-On (SSO) untuk autentikasi pengguna yang lebih baik.",
+          "Mengoptimalkan strategi SEO teknis untuk meningkatkan visibilitas dan performa website.",
+          "Mengkonfigurasi tag Open Graph (OG) untuk pratinjau tautan media sosial yang lebih baik.",
+          "Mengintegrasikan berbagai alat pelacakan untuk memastikan pengukuran data pemasaran yang akurat."
+        ]
+      },
+      {
+        "title": "Full Stack Developer - Freelance",
+        "description": [
+          "Mengimplementasikan Google Single Sign-On (SSO) untuk autentikasi pengguna.",
+          "Pembelajaran Gamifikasi: Meningkatkan keterlibatan pengguna dengan membuat latihan bahasa menjadi menyenangkan dan interaktif.",
+          "Analitik Real-Time: Mengimplementasikan penilaian instan dan umpan balik performa untuk pengguna.",
+          "Integrasi Sosial: Mengintegrasikan fitur berbagi media sosial untuk mendorong pembelajaran berbasis komunitas.",
+          "Penilaian Otomatis: Membangun mesin evaluasi otomatis untuk memberikan hasil secara langsung."
+        ]
+      },
+      {
+        "title": "Full Stack Developer",
+        "description": [
+          "Mengembangkan fitur baru dan pembaruan pada platform internal perusahaan.",
+          "Memelihara dan mengoptimalkan alat serta platform.",
+          "Berpartisipasi dalam mengoptimalkan spesifikasi desain dan kebutuhan.",
+          "Melakukan pengujian unit dan debugging untuk memastikan kualitas produk.",
+          "Berkolaborasi dengan tim untuk mengidentifikasi hambatan dan memberikan saran perbaikan produk."
+        ]
+      },
+      {
+        "title": "Full Stack Developer",
+        "description": [
+          "Mendesain dan mengembangkan aplikasi sesuai kebutuhan klien.",
+          "Menganalisis desain basis data yang efisien untuk mendukung performa sistem.",
+          "Menulis kode yang bersih, terstruktur, dan mudah dipahami.",
+          "Menerapkan design pattern untuk memastikan skalabilitas dan kemudahan pemeliharaan sistem."
+        ]
+      }
+    ]
+  },
+  "services": {
+    "heading": "Apa yang Saya Kerjakan",
+    "subtitle": "Saya membuat website dan aplikasi web kustom yang menggabungkan desain yang indah dengan fungsionalitas yang seamless.",
+    "items": [
+      {
+        "title": "Pengembangan Full-Stack",
+        "description": "Membangun front-end interaktif dan mengelola back-end untuk mewujudkan ide menjadi kenyataan."
+      },
+      {
+        "title": "Desain Landing Page",
+        "description": "Membangun landing page kustom yang tampil menarik dan berfungsi dengan baik untuk pengguna."
+      },
+      {
+        "title": "Desain Responsif",
+        "description": "Mendesain tata letak yang berfungsi dengan baik di perangkat apapun untuk pengalaman pengguna yang lebih baik."
+      },
+      {
+        "title": "Integrasi API",
+        "description": "Menyiapkan API untuk memungkinkan pertukaran data dan komunikasi antar layanan secara mudah."
+      },
+      {
+        "title": "Optimasi Performa",
+        "description": "Mengoptimalkan performa aplikasi untuk waktu muat yang lebih cepat dan pengalaman pengguna yang lebih baik."
+      },
+      {
+        "title": "Integrasi Basis Data",
+        "description": "Menghubungkan basis data untuk mengelola dan mengakses data secara efektif dalam aplikasi."
+      }
+    ]
+  },
+  "projects": {
+    "heading": "Proyek",
+    "subtitle": "Kumpulan karya terbaik saya, di mana desain bertemu fungsionalitas untuk menyelesaikan tantangan dunia nyata.",
+    "featured": "Proyek Unggulan",
+    "other": "Proyek Menarik Lainnya",
+    "items": [
+      {
+        "category": "Etalase digital toko online",
+        "description": "Sebuah etalase digital yang memungkinkan bisnis memasarkan produk, berbagi katalog di media sosial, dan memperluas jangkauan penjualan secara terintegrasi dengan sistem manajemen pesanan mereka."
+      },
+      {
+        "category": "Platform Manajemen Pesanan",
+        "description": "Sebuah platform yang menyediakan fitur Sistem Manajemen Pesanan, Asisten Chat AI, dan pembuatan Toko Digital untuk membantu mengotomatisasi manajemen pesanan, merespons pelanggan, dan mengelola operasional penjualan secara efisien dalam satu dashboard yang praktis."
+      },
+      {
+        "category": "Kuis Belajar Bahasa Inggris Berbasis Web",
+        "description": "Platform kuis pembelajaran Bahasa Inggris berbasis web yang menggunakan gamifikasi untuk meningkatkan keterlibatan pengguna dan membuat belajar lebih menyenangkan. Fitur termasuk bank soal terpusat, penilaian otomatis, tampilan hasil real-time, dan berbagi skor serta pencapaian di media sosial."
+      },
+      {
+        "category": "Sistem Pendidikan & Pelatihan Online",
+        "description": "Platform pendidikan dan pelatihan online yang berfokus pada pengembangan keterampilan digital, pelatihan kejuruan, magang, dan kesiapan karir. Platform ini mendukung pembelajaran berbasis proyek, program pengembangan keterampilan, dan penyampaian kurikulum yang selaras dengan industri."
+      },
+      {
+        "category": "Sistem Pelaporan Harian Karyawan",
+        "description": "Aplikasi internal yang dirancang untuk pelaporan aktivitas kerja harian. Sistem ini memungkinkan karyawan mengirimkan laporan kerja harian sekaligus memungkinkan administrator memantau kinerja, melacak progres pekerjaan, dan mengelola data karyawan secara efisien."
+      }
+    ]
+  },
+  "contact": {
+    "section": "Selanjutnya?",
+    "heading": "Hubungi Saya",
+    "description": "Saya saat ini terbuka untuk kesempatan baru. Apakah Anda punya pertanyaan, ide proyek, atau hanya ingin menyapa — kotak masuk saya selalu terbuka.",
+    "descriptionBusy": "Meskipun saat ini saya tidak aktif mencari kesempatan baru, kotak masuk saya selalu terbuka. Apakah Anda punya pertanyaan atau hanya ingin menyapa — jangan ragu untuk menghubungi.",
+    "sayHello": "Kirim Pesan"
+  },
+  "footer": {
+    "designedBy": "Didesain & Dibangun oleh",
+    "builtWith": "Dibangun dengan Vue.js, PrimeVue & Tailwind CSS"
+  }
+}

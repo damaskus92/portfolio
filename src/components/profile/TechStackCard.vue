@@ -4,15 +4,30 @@
   >
     <template #content>
       <div class="space-y-5">
-        <h3 class="text-xl font-bold text-white tracking-tight">Tech Stack</h3>
+        <h3 class="text-xl font-bold text-white tracking-tight">{{ t('about.techStack') }}</h3>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <TechCategory title="Programming Languages" :technologies="techStack.languages" />
-          <TechCategory title="Backend" :technologies="techStack.backend" />
-          <TechCategory title="Frontend" :technologies="techStack.frontend" />
-          <TechCategory title="Database" :technologies="techStack.database" />
-          <TechCategory title="Tools & Workflow" :technologies="techStack.tools" />
-          <TechCategory title="Others" :technologies="techStack.others" />
+          <TechCategory
+            :title="t('about.techCategories.languages')"
+            :technologies="techStack.languages"
+          />
+          <TechCategory
+            :title="t('about.techCategories.backend')"
+            :technologies="techStack.backend"
+          />
+          <TechCategory
+            :title="t('about.techCategories.frontend')"
+            :technologies="techStack.frontend"
+          />
+          <TechCategory
+            :title="t('about.techCategories.database')"
+            :technologies="techStack.database"
+          />
+          <TechCategory :title="t('about.techCategories.tools')" :technologies="techStack.tools" />
+          <TechCategory
+            :title="t('about.techCategories.others')"
+            :technologies="techStack.others"
+          />
         </div>
       </div>
     </template>
@@ -20,6 +35,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import TechCategory from './TechCategory.vue'
 import { techStack } from '@/data/techStack'
+
+const { t } = useI18n()
 </script>

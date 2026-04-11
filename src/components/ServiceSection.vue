@@ -6,16 +6,15 @@
       <!-- Section Heading -->
       <div class="mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-white section-heading">
-          <span class="text-accent font-mono text-xl mr-2">03.</span> What I Do
+          <span class="text-accent font-mono text-xl mr-2">03.</span> {{ t('services.heading') }}
         </h2>
         <p class="text-slate-400 text-lg mt-6 max-w-2xl">
-          I create custom websites and web apps that combine beautiful design with seamless
-          functionality.
+          {{ t('services.subtitle') }}
         </p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="services-grid">
-        <div v-for="service in services" :key="service.title" class="service-wrapper">
+        <div v-for="(service, index) in services" :key="service.icon" class="service-wrapper">
           <Card class="group service-card h-full">
             <template #content>
               <div class="flex flex-col gap-4 p-5">
@@ -30,11 +29,11 @@
                 <h3
                   class="text-white font-bold text-lg group-hover:text-accent/90 transition-colors"
                 >
-                  {{ service.title }}
+                  {{ t(`services.items[${index}].title`) }}
                 </h3>
 
                 <p class="text-slate-400 text-sm leading-relaxed">
-                  {{ service.description }}
+                  {{ t(`services.items[${index}].description`) }}
                 </p>
               </div>
             </template>
@@ -47,9 +46,11 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { services } from '@/data/services'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 
+const { t } = useI18n()
 const { revealChildren } = useScrollReveal()
 
 onMounted(() => {

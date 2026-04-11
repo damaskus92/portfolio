@@ -29,7 +29,7 @@
 
             <Chip
               v-if="isOpenWork"
-              label="Open to Work"
+              :label="t('about.openToWork')"
               class="bg-emerald-600/10 text-emerald-400 border border-emerald-600/20 font-medium text-sm"
             >
               <template #icon>
@@ -46,10 +46,7 @@
 
         <!-- Bio -->
         <p class="text-slate-400 leading-relaxed">
-          Over 4 years of experience in end-to-end web application development with deep expertise
-          in Backend and Frontend development. Focused on building scalable system architecture,
-          writing clean code, and implementing data security to deliver robust and maintainable
-          digital solutions.
+          {{ t('about.bio') }}
         </p>
 
         <!-- Info Tags -->
@@ -61,7 +58,7 @@
             <template #icon>
               <i class="pi pi-map-marker mr-1 text-accent/70" />
             </template>
-            Karanganyar, Central Java
+            {{ t('about.location') }}
           </Tag>
 
           <Tag
@@ -71,7 +68,7 @@
             <template #icon>
               <i class="pi pi-graduation-cap mr-1 text-accent/70" />
             </template>
-            Bachelor of Engineering in Informatics
+            {{ t('about.degree') }}
           </Tag>
 
           <Tag
@@ -81,7 +78,7 @@
             <template #icon>
               <i class="pi pi-briefcase mr-1 text-accent/70" />
             </template>
-            Full-Stack Developer
+            {{ t('about.role') }}
           </Tag>
         </div>
       </div>
@@ -90,7 +87,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { track } from '@vercel/analytics'
+
+const { t } = useI18n()
 
 defineProps<{
   isOpenWork: boolean

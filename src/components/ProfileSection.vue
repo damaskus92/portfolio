@@ -7,7 +7,7 @@
       <!-- Section Heading -->
       <div class="mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-white section-heading">
-          <span class="text-accent font-mono text-xl mr-2">01.</span> About Me
+          <span class="text-accent font-mono text-xl mr-2">01.</span> {{ t('about.heading') }}
         </h2>
       </div>
 
@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useAvailabilityStore } from '@/stores/availability'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import OverviewCard from './profile/OverviewCard.vue'
@@ -46,12 +47,11 @@ import PhotoCard from './profile/PhotoCard.vue'
 import ContactCard from './profile/ContactCard.vue'
 import TechStackCard from './profile/TechStackCard.vue'
 
+const { t } = useI18n()
 const availability = useAvailabilityStore()
 const { revealChildren } = useScrollReveal()
 
 onMounted(() => {
-  availability.fetchStatus()
-
   revealChildren('#about .grid', ':scope > div', {
     y: 30,
     stagger: 0.1,

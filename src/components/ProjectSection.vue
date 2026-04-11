@@ -6,11 +6,10 @@
       <!-- Section Heading -->
       <div class="mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-white section-heading">
-          <span class="text-accent font-mono text-xl mr-2">04.</span> Projects
+          <span class="text-accent font-mono text-xl mr-2">04.</span> {{ t('projects.heading') }}
         </h2>
         <p class="text-slate-400 text-lg mt-6 max-w-2xl">
-          A collection of my best work, where design meets functionality to solve real-world
-          challenges.
+          {{ t('projects.subtitle') }}
         </p>
       </div>
 
@@ -47,7 +46,7 @@
 
             <!-- Details -->
             <div :class="['md:col-span-5 space-y-4', index % 2 === 1 ? 'md:order-1' : '']">
-              <p class="text-accent font-mono text-sm">Featured Project</p>
+              <p class="text-accent font-mono text-sm">{{ t('projects.featured') }}</p>
               <h3 class="text-2xl font-bold text-white">
                 {{ project.title }}
               </h3>
@@ -56,7 +55,7 @@
                 :class="index % 2 === 1 ? 'md:-mr-12' : 'md:-ml-12'"
               >
                 <p class="text-slate-400 text-sm leading-relaxed">
-                  {{ project.description }}
+                  {{ getProjectTranslation(project.id, 'description') }}
                 </p>
               </div>
 
@@ -76,10 +75,10 @@
                   :href="project.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-slate-300 hover:text-accent transition-colors"
+                  class="inline-flex items-center justify-center w-10 h-10 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 text-slate-300 hover:text-accent rounded-full transition-all duration-300 backdrop-blur-sm shadow-sm hover:-translate-y-1"
                   aria-label="View live project"
                 >
-                  <i class="pi pi-external-link text-lg"></i>
+                  <i class="pi pi-external-link"></i>
                 </a>
               </div>
             </div>
@@ -89,7 +88,7 @@
 
       <!-- Other Projects -->
       <div v-if="otherProjects.length > 0">
-        <h3 class="text-xl font-bold text-white text-center mb-8">Other Noteworthy Projects</h3>
+        <h3 class="text-xl font-bold text-white text-center mb-8">{{ t('projects.other') }}</h3>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="other-projects-grid">
           <div v-for="project in otherProjects" :key="project.id" class="other-project-wrapper">
             <Card class="group other-project-card h-full flex flex-col">
@@ -117,15 +116,15 @@
                       :href="project.url"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-slate-400 hover:text-accent transition-colors shrink-0 mt-1"
+                      class="inline-flex items-center justify-center w-8 h-8 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 text-slate-400 hover:text-accent rounded-full transition-all duration-300 backdrop-blur-sm shrink-0 mt-0.5 hover:-translate-y-0.5"
                       aria-label="View project"
                     >
-                      <i class="pi pi-external-link"></i>
+                      <i class="pi pi-external-link text-xs"></i>
                     </a>
                   </div>
 
                   <p class="text-slate-400 text-sm leading-relaxed grow mt-2">
-                    {{ project.description }}
+                    {{ getProjectTranslation(project.id, 'description') }}
                   </p>
 
                   <div class="flex flex-wrap gap-2 pt-2">
@@ -149,13 +148,33 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { projects } from '@/data/projects'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 
+const { t } = useI18n()
 const { revealChildren, reveal } = useScrollReveal()
 
 const featuredProjects = computed(() => projects.filter((p) => p.featured))
 const otherProjects = computed(() => projects.filter((p) => !p.featured))
+
+// Map project ID to locale items index
+// Projects in data: id 5 (index 0), 4 (index 1), 3 (index 2), 2 (index 3), 1 (index 4)
+const projectIdToIndex: Record<number, number> = {
+  5: 0,
+  4: 1,
+  3: 2,
+  2: 3,
+  1: 4,
+}
+
+function getProjectTranslation(projectId: number, field: string): string {
+  const index = projectIdToIndex[projectId]
+  if (index !== undefined) {
+    return t(`projects.items[${index}].${field}`)
+  }
+  return ''
+}
 
 onMounted(() => {
   // Animate featured projects

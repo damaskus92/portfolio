@@ -17,13 +17,25 @@
       <MainNavbar />
       <RouterView />
     </div>
+
+    <!-- Language Toggle -->
+    <LanguageToggle />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Analytics } from '@vercel/analytics/vue'
 import { RouterView } from 'vue-router'
+import { onMounted } from 'vue'
 import MainNavbar from './components/MainNavbar.vue'
+import LanguageToggle from './components/LanguageToggle.vue'
+import { useAvailabilityStore } from '@/stores/availability'
+
+const availability = useAvailabilityStore()
+
+onMounted(() => {
+  availability.fetchStatus()
+})
 
 const handleMouseMove = (e: MouseEvent) => {
   const x = (e.clientX / window.innerWidth) * 100

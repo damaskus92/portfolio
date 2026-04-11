@@ -6,7 +6,7 @@
       <!-- Section Heading -->
       <div class="mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-white section-heading">
-          <span class="text-accent font-mono text-xl mr-2">02.</span> Experience
+          <span class="text-accent font-mono text-xl mr-2">02.</span> {{ t('experience.heading') }}
         </h2>
       </div>
 
@@ -17,7 +17,11 @@
 
         <!-- Experience Items -->
         <div class="space-y-12">
-          <div v-for="exp in experiences" :key="exp.id" class="relative pl-10 experience-item">
+          <div
+            v-for="(exp, index) in experiences"
+            :key="exp.id"
+            class="relative pl-10 experience-item"
+          >
             <!-- Timeline Dot -->
             <div
               :class="[
@@ -33,7 +37,7 @@
                   <h3
                     class="text-xl font-bold text-white group-hover:text-accent transition-colors mb-2"
                   >
-                    {{ exp.title }}
+                    {{ t(`experience.items[${index}].title`) }}
                   </h3>
                   <p class="text-teal-600 font-medium">{{ exp.company }}</p>
                 </div>
@@ -42,8 +46,8 @@
 
               <ul class="space-y-1 mb-4">
                 <li
-                  v-for="(desc, i) in exp.description"
-                  :key="i"
+                  v-for="descIdx in exp.descriptionCount"
+                  :key="descIdx"
                   class="text-slate-400 text-sm leading-relaxed flex"
                 >
                   <span class="text-accent/50 -mt-3 shrink-0"
@@ -58,7 +62,7 @@
                         d="M12 10a2 2 0 0 0-2 2a2 2 0 0 0 2 2c1.11 0 2-.89 2-2a2 2 0 0 0-2-2"
                       /></svg
                   ></span>
-                  <span>{{ desc }}</span>
+                  <span>{{ t(`experience.items[${index}].description[${descIdx - 1}]`) }}</span>
                 </li>
               </ul>
 
@@ -80,9 +84,11 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { experiences } from '@/data/experience'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 
+const { t } = useI18n()
 const { revealChildren } = useScrollReveal()
 
 onMounted(() => {
